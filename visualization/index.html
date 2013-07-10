@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>App store items visualization</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <script src="js/bootstrap.min.js"></script>
+  <script src="jquery.min.js"></script>
+  <script src="VivaGraphJS/dist/vivagraph.js"></script>
+  <script src="http://localhost:8088/socket.io/socket.io.js"></script>
+  <script src="graphBuilder.js"></script>
+
+  <script src='main.js'></script>
+
+  <style type="text/css" media="screen">
+    body, html, svg, #graph { width: 100%; height: 100%; overflow: hidden; }
+
+    #itemData {
+      position:absolute; 
+      top: 60px;
+      bottom: 0;
+    }
+
+    #itemDataInner {
+      overflow-y: auto;
+      bottom: 0;
+      position: absolute;
+      top: 0;
+      width: 300px;
+    }
+
+    #screenshots {
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    #screenshotsInner {
+      width: 1500px;
+    }
+
+    #link {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    img {
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      width: 100px;
+      filter: grayscale(0.5) blur(10px);
+    }
+
+    .inline {
+      float:left;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    #showFreeLabel {
+      color: white;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    #showFreeCheckbox {
+      margin-top: 14px;
+    }
+  </style>
+
+</head>
+<body onload="onLoad()">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="nav-collapse collapse">
+          <form class="navbar-form">
+            <input type="checkbox" class="inline" id="showFreeCheckbox">
+            <label id="showFreeLabel" class="inline">Free items only</label>
+            <input type="text" class='inline' id="item" value='https://itunes.apple.com/us/app/temple-run/id420009108?mt=8' placeholder="Insert or type url here">
+            <button type="submit" class="btn inline" id="showGraphButton">Show graph</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3" id="itemData">
+          <div class="well sidebar-nav" id="itemDataInner">
+            <h4 id='title'></h4>
+            <div id='link'><a id='linkInner'>See on itunes</a></div>
+            <div id='author'></div>
+            <div id='category'></div>
+            <b id='price'></b>
+            <h5>Screenshots</h5>
+            <div id='screenshots'><div id='screenshotsInner'></div></div>
+            <h5>Description</h5>
+            <div id='description'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="graph"></div>
+</body>
+</html>
