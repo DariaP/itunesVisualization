@@ -10,10 +10,10 @@ function initializer(initializedCallback) {
       dbConfig;
 
       addConnectionsAsTasksValue = mongoProvider
-                                  .addConnectionsAsTasks
-                                  .all[config.addConnectionsAsTasks];
+                                  .addConnectionsAsTasks[config.addConnectionsAsSubtasks];
+
       if (!addConnectionsAsTasksValue) {
-        log("Error: unknown value of config.addConnectionsAsTasks");
+        log("Error: unknown value of config.addConnectionsAsSubtasks");
         return;
       }
 
