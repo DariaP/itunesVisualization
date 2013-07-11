@@ -5,7 +5,18 @@ var log = require('./logger.js'),
 
 function initializer(initializedCallback) {
   var mongodb = require('mongodb'),
+      addConnectionsAsTasksValue,
       mongoProvider = require('../../lib/mongoDataProvider.js'),
+      dbConfig;
+
+      addConnectionsAsTasksValue = mongoProvider
+                                  .addConnectionsAsTasks
+                                  .all[config.addConnectionsAsTasks];
+      if (!addConnectionsAsTasksValue) {
+        log("Error: unknown value of config.addConnectionsAsTasks");
+        return;
+      }
+
       dbConfig = {
         mongoAddress: config.mongoAddress,
         mongoPort: config.mongoPort,

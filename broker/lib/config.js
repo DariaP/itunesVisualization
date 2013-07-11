@@ -1,9 +1,3 @@
-var addConnectionsValue = {
-  all : 0,
-  regularOnly : 1,
-  urgentOnly : 2,
-  none : 3
-};
 
 var config = {
   brokerPort: 19999,
@@ -20,11 +14,10 @@ var config = {
   sendTaskTimeout: 500, // in miliseconds
   checkTaskTimeout: (10 * 1000), // in miliseconds
   checkUrgentTaskTimeout: (5 * 1000), // in miliseconds
-  // TODO use this config instead of hardcoded value
-  addConnectionsAsSubtasks: addConnectionsValue.all
+  // "all", "regularOnly", "urgentOnly" or "none"
+  addConnectionsAsSubtasks: "regularOnly"
 };
 
 module.exports = { 
                    config : config,
-                   addConnectionsValue : addConnectionsValue
                  }
