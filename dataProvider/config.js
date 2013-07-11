@@ -4,10 +4,8 @@ var config = {
   mongoAddress: "0.0.0.0",
   mongoPort: 29999,
   mongoTasksDb: 'changeme',
-  tasksCollection: "changeme",
-  scheduledTasksCollection: "changeme",
-  tasksDoneCollection: "changeme",
   itemsCollection: "changeme"
+  serverPort: 8088
 };
 
 module.exports = config;

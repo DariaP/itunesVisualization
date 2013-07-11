@@ -65,8 +65,7 @@ function initializeDb(initializedCallback) {
 
 function initializeGrowlerClient(initializedCallback) {
   var client = require('socket.io-client');
-  // TODO move to config
-  var socket = client.connect('http://localhost:19999');
+  var socket = client.connect("http://localhost:" + brokerPort);
   var tasks = {};
   socket.on('connect', function () {
     socket.on('itemData', function (itemData) {
@@ -117,8 +116,7 @@ function initializeDownloader(initializedCallback) {
 }
 
 function initializeNetwork(itemsProviders) {
-  // TODO move to config
-  var io = socketIo.listen(9999, { log: false });
+  var io = socketIo.listen(serverPort, { log: false });
 
   console.log("Ready");
 
